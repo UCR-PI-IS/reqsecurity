@@ -1,0 +1,109 @@
+
+{
+    "context": "Cyclos is a secure and scalable payment software. It offers a complete mobile banking platform, including SMS banking and Mobile app.",
+    "use_case": "UC1-Mobile",
+    "domain": "Mobile banking",
+    "functional_requirements": [
+        {
+            "use_case_id": "UC1-Mobile",
+            "sentence_id": "1",
+            "sentence_type": "main",
+            "sentence_text": "A member can make a payment to another member by sending just one SMS to the organization number/short code.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable member to make payment.; The system shall encrypt payment and store payment in encrypted format using an industry approved encryption algorithm.; The system shall transmit payment data in encrypted format to and from the authorized member.; The system shall monitor the status and location of system components that may contain unencrypted payment data.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the payment before make.; The system shall protect against loss of information during make.; The system shall have provision to report errors in payment during make.; The system shall have provision to report errors in payment after make.; The system shall have provision to correct errors in payment if errors are detected.; The system shall ensure synchronization of payment if multiple members can perform make on payment simultaneously.",
+                "ia:2": "The system shall maintain a list of accounts for each member.; The system shall authenticate members based upon credentials.",
+                "ay:1": "The system shall log every time member performs the make on payment.; At a minimum, the system shall capture the following information for the log entry: member identification, timestamp, make, payment, and identification of the owner of payment.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC1-Mobile",
+            "sentence_id": "2",
+            "sentence_type": "main",
+            "sentence_text": "If the payment has been processed successfully the payer and receiver will receive a confirmation notification by SMS.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable payer and receiver to receive confirmation notification.; The system shall encrypt confirmation notification and store confirmation notification in encrypted format using an industry approved encryption algorithm.; The system shall transmit confirmation notification data in encrypted format to and from the authorized payer and receiver.; The system shall monitor the status and location of system components that may contain unencrypted confirmation notification data.",
+                "ia:2": "The system shall maintain a list of accounts for each user.; The system shall authenticate users based upon credentials.",
+                "ay:1": "The system shall log every time payer and receiver performs the receive on confirmation notification.;At a minimum, the system shall capture the following information for the log entry: payer and receiver identification, timestamp, receive, confirmation notification, and identification of the owner of confirmation notification.;The system shall prevent all users from modifying the log entry.;The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC1-Mobile",
+            "sentence_id": "3",
+            "sentence_type": "main",
+            "sentence_text": "The message sent by the payer will include the following parameters: a. Direct payment command or alias (e.g. 'payment' or 'pay'); b. Credential: (e.g. PIN, login password, transaction password, card security code). What credential is used depends on the configuration; c. Receiver: The user that will receive the payment. Depending on the Cyclos and controller configuration this can be the username or any custom field (e.g. mobile phone number); d. Amount: The amount to pay.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable payer to sent message.; The system shall encrypt message and store message in encrypted format using an industry approved encryption algorithm.; The system shall transmit message data in encrypted format to and from the authorized payer.; The system shall monitor the status and location of system components that may contain unencrypted message data.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the message before sent.;The system shall protect against loss of information during sent.;The system shall have provision to report errors in message during sent.;The system shall have provision to report errors in message after sent.;The system shall have provision to correct errors in message if errors are detected.;The system shall ensure synchronization of message if multiple payers can perform sent on message simultaneously.",
+                "ia:2": "The system shall maintain a list of accounts for each user.; The system shall authenticate users based upon credentials.",
+                "ay:1": "The system shall log every time payer performs the sent on message.;At a minimum, the system shall capture the following information for the log entry: payer identification, timestamp, sent, message, and identification of the owner of message.;The system shall prevent all users from modifying the log entry.;The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC1-Mobile",
+            "sentence_id": "4",
+            "sentence_type": "main",
+            "sentence_text": "The message sent by the payer will include the following parameters: a. Direct payment command or alias (e.g. 'payment' or 'pay'); b. Credential: (e.g. PIN, login password, transaction password, card security code). What credential is used depends on the configuration; c. Receiver: The user that will receive the payment. Depending on the Cyclos and controller configuration this can be the username or any custom field (e.g. mobile phone number); d. Amount: The amount to pay.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable payer to sent message.; The system shall encrypt message and store message in encrypted format using an industry approved encryption algorithm.; The system shall transmit message data in encrypted format to and from the authorized payer.; The system shall monitor the status and location of system components that may contain unencrypted message data.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the amount before payment.;The system shall protect against loss of information during payment.;The system shall have provision to report errors in amount during payment.;The system shall have provision to report errors in amount after payment.;The system shall have provision to correct errors in amount if errors are detected.;The system shall ensure synchronization of amount if multiple users can perform payment on amount simultaneously.",
+                "ia:2": "The system shall maintain a list of accounts for each user.; The system shall authenticate users based upon credentials.",
+                "ay:1": "The system shall log every time user performs the payment on credential.;At a minimum, the system shall capture the following information for the log entry: user identification, timestamp, payment, credential, and identification of the owner of credential.;The system shall prevent all users from modifying the log entry.;The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC1-Mobile",
+            "sentence_id": "5",
+            "sentence_type": "main",
+            "sentence_text": "User (payer) sends a direct payment message to the organization number.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable user to send direct payment message.; The system shall encrypt direct payment message and store direct payment message in encrypted format using an industry approved encryption algorithm.; The system shall transmit direct payment message data in encrypted format to and from the authorized user.; The system shall monitor the status and location of system components that may contain unencrypted direct payment message data.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the direct payment message before sends.; The system shall protect against loss of information during sends.; The system shall have provision to report errors in direct payment message during sends.; The system shall have provision to report errors in direct payment message after sends.; The system shall have provision to correct errors in direct payment message if errors are detected.; The system shall ensure synchronization of direct payment message if multiple users can perform sends on direct payment message simultaneously.",
+                "ia:2": "The system shall maintain a list of accounts for each user.; The system shall authenticate users based upon credentials.",
+                "ay:1": "The system shall log every time user performs the sends on direct payment message.; At a minimum, the system shall capture the following information for the log entry: user identification, timestamp, sends, direct payment message, and identification of the owner of direct payment message.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC1-Mobile",
+            "sentence_id": "6",
+            "sentence_type": "main",
+            "sentence_text": "The mobile phone operator delivers the message to the Cyclos SMS controler (the message might go via a SMS gateway provider but this is transparent).",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable mobile phone operator to deliver message.; The system shall encrypt message and store message in encrypted format using an industry approved encryption algorithm.; The system shall transmit message data in encrypted format to and from the authorized mobile phone operator.; The system shall monitor the status and location of system components that may contain unencrypted message data.",
+                "i:1": "The system shall ensure consistent understanding of message by the mobile phone operator during delivers.;The system shall have provision to report errors in message during delivers.",
+                "ay:3": "The system shall log every time message delivery happens.;At a minimum, the system shall capture the following information for the log entry: timestamp, message delivery;The system shall prevent all users from modifying the log entry.;The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC1-Mobile",
+            "sentence_id": "7",
+            "sentence_type": "main",
+            "sentence_text": "The SMS controller connects to Cyclos and instructs the payment to be done and passes the parameters.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable SMS controller to instruct payment.; The system shall encrypt payment and store payment in encrypted format using an industry approved encryption algorithm.; The system shall transmit payment data in encrypted format to and from the authorized SMS controller.; The system shall monitor the status and location of system components that may contain unencrypted payment data.",
+                "i:1": "The system shall ensure consistent understanding of payment by the SMS controller during instructs.;The system shall have provision to report errors in payment during instructs.",
+                "ay:3": "The system shall log every time SMS controller connects to Cyclos happens.;At a minimum, the system shall capture the following information for the log entry: timestamp, SMS controller connects to Cyclos;The system shall prevent all users from modifying the log entry.;The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC1-Mobile",
+            "sentence_id": "8",
+            "sentence_type": "main",
+            "sentence_text": "If the payment is done (no errors) the controller sends a payment confirmation to the payer.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable controller to send payment confirmation.; The system shall encrypt payment confirmation and store payment confirmation in encrypted format using an industry approved encryption algorithm.; The system shall transmit payment confirmation data in encrypted format to and from the authorized controller.; The system shall monitor the status and location of system components that may contain unencrypted payment confirmation data.",
+                "ay:1": "The system shall log every time controller performs the sends on payment confirmation.;At a minimum, the system shall capture the following information for the log entry: controller identification, timestamp, sends, payment confirmation, and identification of the owner of payment confirmation.;The system shall prevent all users from modifying the log entry.;The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC1-Mobile",
+            "sentence_id": "9",
+            "sentence_type": "main",
+            "sentence_text": "The receiver will receive a notification based on his personal notification settings in Cyclos.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable receiver to receive notification.; The system shall encrypt notification and store notification in encrypted format using an industry approved encryption algorithm.; The system shall transmit notification data in encrypted format to and from the authorized receiver.; The system shall monitor the status and location of system components that may contain unencrypted notification data.",
+                "ay:1": "The system shall log every time receiver performs the receives on notification.;At a minimum, the system shall capture the following information for the log entry: receiver identification, timestamp, receives, notification, and identification of the owner of notification.;The system shall prevent all users from modifying the log entry.;The system shall allow only authorized auditors to view the log entry."
+            }
+        }
+    ]
+}

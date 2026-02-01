@@ -1,0 +1,122 @@
+{
+    "context": "iTrust is an electronic health record system that allows doctors to manage patient health information.",
+    "use_case": "UC1-Health",
+    "domain": "Healthcare",
+    "functional_requirements":
+    [
+        {
+            "use_case_id": "UC1-Health",
+            "sentence_id": "1",
+            "sentence_type": "pre",
+            "sentence_text": "A health care provider(HCP) is a registered user of the iTrust Medical Records system.",
+            "security_objectives": {
+                "ia:2": "The system shall maintain a list of accounts for each health care provider.; The system shall authenticate health care providers based upon credentials."
+            }
+        },
+        {
+            "use_case_id": "UC1-Health",
+            "sentence_id": "2",
+            "sentence_type": "pre",
+            "sentence_text": "The iTrust user has authenticated himself or herself in the iTrust Medical Records system.",
+            "security_objectives": {
+                "ia:2": "The system shall maintain a list of accounts for each health care provider.; The system shall authenticate health care providers based upon credentials.",
+                "ay:2": "The system shall log every time iTrust user logs into and logs out of the system.; At a minimum, the system shall capture the following information for the log entry: iTrust user identification, timestamp, login/logout.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC1-Health",
+            "sentence_id": "3",
+            "sentence_type": "main",
+            "sentence_text": "An HCP chooses to document an office visit.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable HCP to document office visit.; The system shall encrypt office visit and store office visit in encrypted format using an industry approved encryption algorithm.; The system shall transmit office visit data in encrypted format to and from the authorized HCP.; The system shall monitor the status and location of system components that may contain unencrypted office visit data.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the office visit before document.; The system shall protect against loss of information during document.; The system shall have provision to report errors in office visit during document.; The system shall have provision to report errors in office visit after document.; The system shall have provision to correct errors in office visit if errors are detected.; The system shall ensure synchronization of office visit if multiple HCPs can perform document on office visit simultaneously.",
+                "ay:1": "The system shall log every time HCP performs the document on office visit.; At a minimum, the system shall capture the following information for the log entry: HCP identification, timestamp, document, office visit, and identification of the owner of office visit.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry.",
+                "pr:1": "The system shall allow the owner of office visit to be notified of potential authorized uses of office visit.; The system shall allow the owner of office visit to be notified when the office visit is document by HCP.; The system shall have the ability to get consent from the owner of office visit before accessing office visit for authorized use.; The system shall allow access to office visit for authorized use without prior consent only under exceptional circumstances as defined by applicable privacy policy."
+            }
+        },
+        {
+            "use_case_id": "UC1-Health",
+            "sentence_id": "4",
+            "sentence_type": "main",
+            "sentence_text": "The HCP enters the medical identifier (MID) or name of a patient and confirms their selection.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable HCP to enter medical identifier (MID) or name of a patient.; The system shall encrypt medical identifier (MID) or name of a patient and store medical identifier (MID) or name of a patient in encrypted format using an industry approved encryption algorithm.; The system shall transmit medical identifier (MID) or name of a patient data in encrypted format to and from the authorized HCP.; The system shall monitor the status and location of system components that may contain unencrypted medical identifier (MID) or name of a patient data.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the medical identifier (MID) or name of a patient before enter.; The system shall protect against loss of information during enter.; The system shall have provision to report errors in medical identifier (MID) or name of a patient during enter.; The system shall have provision to report errors in medical identifier (MID) or name of a patient after enter.; The system shall have provision to correct errors in medical identifier (MID) or name of a patient if errors are detected.; The system shall ensure synchronization of medical identifier (MID) or name of a patient if multiple HCPs can perform enter on medical identifier (MID) or name of a patient simultaneously.",
+                "ay:1": "The system shall log every time HCP performs the enter on medical identifier (MID) or name of a patient.; At a minimum, the system shall capture the following information for the log entry: HCP identification, timestamp, enter, medical identifier (MID) or name of a patient, and identification of the owner of medical identifier (MID) or name of a patient.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry.",
+                "pr:1": "The system shall allow the owner of medical identifier (MID) or name of a patient to be notified of potential authorized uses of medical identifier (MID) or name of a patient.; The system shall allow the owner of medical identifier (MID) or name of a patient to be notified when the medical identifier (MID) or name of a patient is enter by HCP.; The system shall have the ability to get consent from the owner of medical identifier (MID) or name of a patient before accessing medical identifier (MID) or name of a patient for authorized use.; The system shall allow access to medical identifier (MID) or name of a patient for authorized use without prior consent only under exceptional circumstances as defined by applicable privacy policy."
+            }
+        },
+        {
+            "use_case_id": "UC1-Health",
+            "sentence_id": "5",
+            "sentence_type": "main",
+            "sentence_text": "The HCP documents the office visit date; hospital location of the office visit, if any, (the default should be the HCP's home location); and notes about an office visit.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable HCP to document office visit date.; The system shall encrypt office visit date and store office visit date in encrypted format using an industry approved encryption algorithm.; The system shall transmit office visit date data in encrypted format to and from the authorized HCP.; The system shall monitor the status and location of system components that may contain unencrypted office visit date data.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the office visit date before document.; The system shall protect against loss of information during document.; The system shall have provision to report errors in office visit date during document.; The system shall have provision to report errors in office visit date after document.; The system shall have provision to correct errors in office visit date if errors are detected.; The system shall ensure synchronization of office visit date if multiple HCPs can perform document on office visit date simultaneously.",
+                "ay:1": "The system shall log every time HCP performs the document on office visit date.; At a minimum, the system shall capture the following information for the log entry: HCP identification, timestamp, document, office visit date, and identification of the owner of office visit date.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry.",
+                "pr:1": "The system shall allow the owner of office visit date to be notified of potential authorized uses of office visit date.; The system shall allow the owner of office visit date to be notified when the office visit date is document by HCP.; The system shall have the ability to get consent from the owner of office visit date before accessing office visit date for authorized use.; The system shall allow access to office visit date for authorized use without prior consent only under exceptional circumstances as defined by applicable privacy policy."
+            }
+        },
+        {
+            "use_case_id": "UC1-Health",
+            "sentence_id": "6",
+            "sentence_type": "main",
+            "sentence_text": "The HCP's medical identification number should also be maintained.",
+            "security_objectives": {
+                "i:2": "The system shall ensure that all mandatory information is provided for the HCP's medical identification number before maintaining.; The system shall protect against loss of information during maintaining.; The system shall have provision to report errors in HCP's medical identification number during maintaining.; The system shall have provision to report errors in HCP's medical identification number after maintaining.; The system shall have provision to correct errors in HCP's medical identification number if errors are detected.; The system shall ensure synchronization of HCP's medical identification number if multiple users can perform maintaining on HCP's medical identification number simultaneously.",
+                "ay:1": "The system shall log every time authorized users perform the maintenance action on HCP's medical identification number.; At a minimum, the system shall capture the following information for the log entry: user identification, timestamp, maintenance action, HCP's medical identification number, and identification of the owner of HCP's medical identification number.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC1-Health",
+            "sentence_id": "7",
+            "sentence_type": "main",
+            "sentence_text": "Additionally, the HCP can document none, one, or more medications prescribed; none, one, or more lab procedures that are ordered; none, one, or more diagnoses; none, one, or more medical procedures performed; and none, one, or more immunizations given chosen from appropriate pull-down lists.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable HCP to document medications prescribed.; The system shall encrypt medications prescribed and store medications prescribed in encrypted format using an industry approved encryption algorithm.; The system shall transmit medications prescribed data in encrypted format to and from the authorized HCP.; The system shall monitor the status and location of system components that may contain unencrypted medications prescribed data.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the medications prescribed before document.; The system shall protect against loss of information during document.; The system shall have provision to report errors in medications prescribed during document.; The system shall have provision to report errors in medications prescribed after document.; The system shall have provision to correct errors in medications prescribed if errors are detected.; The system shall ensure synchronization of medications prescribed if multiple HCPs can perform document on medications prescribed simultaneously.",
+                "ay:1": "The system shall log every time HCP performs the document on medications prescribed.; At a minimum, the system shall capture the following information for the log entry: HCP identification, timestamp, document, medications prescribed, and identification of the owner of medications prescribed.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry.",
+                "pr:1": "The system shall allow the owner of medications prescribed to be notified of potential authorized uses of medications prescribed.; The system shall allow the owner of medications prescribed to be notified when the medications prescribed is document by HCP.; The system shall have the ability to get consent from the owner of medications prescribed before accessing medications prescribed for authorized use.; The system shall allow access to medications prescribed for authorized use without prior consent only under exceptional circumstances as defined by applicable privacy policy."
+            }
+        },
+        {
+            "use_case_id": "UC1-Health",
+            "sentence_id": "8",
+            "sentence_type": "main",
+            "sentence_text": "The HCP may also add a patient referral; All events are logged.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable HCP to add patient referral.; The system shall encrypt patient referral and store patient referral in encrypted format using an industry approved encryption algorithm.; The system shall transmit patient referral data in encrypted format to and from the authorized HCP.; The system shall monitor the status and location of system components that may contain unencrypted patient referral data.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the patient referral before add.; The system shall protect against loss of information during add.; The system shall have provision to report errors in patient referral during add.; The system shall have provision to report errors in patient referral after add.; The system shall have provision to correct errors in patient referral if errors are detected.; The system shall ensure synchronization of patient referral if multiple HCPs can perform add on patient referral simultaneously.",
+                "ay:1": "The system shall log every time HCP performs the add on patient referral.; At a minimum, the system shall capture the following information for the log entry: HCP identification, timestamp, add, patient referral, and identification of the owner of patient referral.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry.",
+                "pr:1": "The system shall allow the owner of patient referral to be notified of potential authorized uses of patient referral.; The system shall allow the owner of patient referral to be notified when the patient referral is add by HCP.; The system shall have the ability to get consent from the owner of patient referral before accessing patient referral for authorized use.; The system shall allow access to patient referral for authorized use without prior consent only under exceptional circumstances as defined by applicable privacy policy."
+            }
+        },
+        {
+            "use_case_id": "UC1-Health",
+            "sentence_id": "9",
+            "sentence_type": "main",
+            "sentence_text": "HCPs can return to an office visit and modify or delete the fields of the office visit (date, hospital, notes, prescriptions, laboratory procedures, referral, diagnoses, procedures, and/or immunizations).",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable HCPs to modify office visit fields.; The system shall encrypt office visit fields and store office visit fields in encrypted format using an industry approved encryption algorithm.; The system shall transmit office visit fields data in encrypted format to and from the authorized HCPs.; The system shall monitor the status and location of system components that may contain unencrypted office visit fields data.",
+                "i:1": "The system shall ensure consistent understanding of office visit by the HCPs during return to.; The system shall have provision to report errors in office visit during return to.",
+                "i:3": "The system shall ensure that delete on office visit fields is performed in accordance with the retention policy.",
+                "a:1": "The system shall store and make available office visit fields for a period of at least the retention period.; The system shall provide the capability for an administrator to purge data that is at least the retention period old and in accordance with organizational retention policy.",
+                "ay:1": "The system shall log every time HCPs performs the modify or delete on office visit fields.; At a minimum, the system shall capture the following information for the log entry: HCPs identification, timestamp, modify or delete, office visit fields, and identification of the owner of office visit fields.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry.",
+                "pr:1": "The system shall allow the owner of office visit fields to be notified of potential authorized uses of office visit fields.; The system shall allow the owner of office visit fields to be notified when the office visit fields is modify or delete by HCPs.; The system shall have the ability to get consent from the owner of office visit fields before accessing office visit fields for authorized use.; The system shall allow access to office visit fields for authorized use without prior consent only under exceptional circumstances as defined by applicable privacy policy."
+            }
+        },
+        {
+            "use_case_id": "UC1-Health",
+            "sentence_id": "10",
+            "sentence_type": "main",
+            "sentence_text": "The event is logged and the HCP is returned in the specific office visit record to verify his or her changes.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable HCP to verify specific office visit record.; The system shall encrypt specific office visit record and store specific office visit record in encrypted format using an industry approved encryption algorithm.; The system shall transmit specific office visit record data in encrypted format to and from the authorized HCP.; The system shall monitor the status and location of system components that may contain unencrypted specific office visit record data.",
+                "i:1": "The system shall ensure consistent understanding of office visit record by the HCP during verify.; The system shall have provision to report errors in office visit record during verify.",
+                "ay:1": "The system shall log every time HCP performs the verify on office visit record.; At a minimum, the system shall capture the following information for the log entry: HCP identification, timestamp, verify, office visit record, and identification of the owner of office visit record.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry."
+            }
+        }
+    ]
+}

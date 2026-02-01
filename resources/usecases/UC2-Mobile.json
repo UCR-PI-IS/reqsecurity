@@ -1,0 +1,120 @@
+{
+    "context": "Cyclos is a secure and scalable payment software. It offers a complete mobile banking platform, including SMS banking and Mobile app.",
+    "use_case": "UC2-Mobile",
+    "domain": "Mobile banking",
+    "functional_requirements": [
+        {
+            "use_case_id": "UC2-Mobile",
+            "sentence_id": "1",
+            "sentence_type": "main",
+            "sentence_text": "A user can send a command to retrieve account information (the current balance and three last payments).",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable user to retrieve account information.; The system shall encrypt account information and store account information in encrypted format using an industry approved encryption algorithm.; The system shall transmit account information data in encrypted format to and from the authorized user.; The system shall monitor the status and location of system components that may contain unencrypted account information data.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the account information before retrieve.;The system shall protect against loss of information during retrieve.;The system shall have provision to report errors in account information during retrieve.;The system shall have provision to report errors in account information after retrieve.;The system shall have provision to correct errors in account information if errors are detected.;The system shall ensure synchronization of account information if multiple users can perform retrieve on account information simultaneously.",
+                "ia:2": "The system shall maintain a list of accounts for each user.;The system shall authenticate users based upon PIN before allowing retrieval of account information.",
+                "ay:1": "The system shall log every time user performs the retrieve on account information.;At a minimum, the system shall capture the following information for the log entry: user identification, timestamp, retrieve, account information, and identification of the owner of account information.;The system shall prevent all users from modifying the log entry.;The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC2-Mobile",
+            "sentence_id": "2",
+            "sentence_type": "main",
+            "sentence_text": "The command parameters will include the following: a. Account information command or alias (e.g. 'acinfo' or 'detail') ; b. Credential: (e.g. PIN); \nc. Page (Optional): If a user wants to see more than the last three payments he/she can specify a number ('2' would return transactions 4,5 and 6)",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable user to see account information.; The system shall encrypt account information and store account information in encrypted format using an industry approved encryption algorithm.; The system shall transmit account information data in encrypted format to and from the authorized user.; The system shall monitor the status and location of system components that may contain unencrypted account information data.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the account information before retrieve.;The system shall protect against loss of information during retrieve.;The system shall have provision to report errors in account information during retrieve.;The system shall have provision to report errors in account information after retrieve.;The system shall have provision to correct errors in account information if errors are detected.;The system shall ensure synchronization of account information if multiple users can perform retrieve on account information simultaneously.",
+                "ia:2": "The system shall maintain a list of accounts for each user.;The system shall authenticate users based upon PIN before allowing retrieval of account information."
+            }
+        },
+        {
+            "use_case_id": "UC2-Mobile",
+            "sentence_id": "3",
+            "sentence_type": "main",
+            "sentence_text": "The command parameters will include the following: a. Account information command or alias (e.g. 'acinfo' or 'detail') ; b. Credential: (e.g. PIN); \nc. Page (Optional): If a user wants to see more than the last three payments he/she can specify a number ('2' would return transactions 4,5 and 6)",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable user to see account information.; The system shall encrypt account information and store account information in encrypted format using an industry approved encryption algorithm.; The system shall transmit account information data in encrypted format to and from the authorized user.; The system shall monitor the status and location of system components that may contain unencrypted account information data.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the account information before retrieve.;The system shall protect against loss of information during retrieve.;The system shall have provision to report errors in account information during retrieve.;The system shall have provision to report errors in account information after retrieve.;The system shall have provision to correct errors in account information if errors are detected.;The system shall ensure synchronization of account information if multiple users can perform retrieve on account information simultaneously.",
+                "ia:2": "The system shall maintain a list of accounts for each user.;The system shall authenticate users based upon PIN before allowing retrieval of account information."
+            }
+        },
+        {
+            "use_case_id": "UC2-Mobile",
+            "sentence_id": "4",
+            "sentence_type": "main",
+            "sentence_text": "The user sends a message to the organisation number requesting the account information (as described above).",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable user to send account information.;The system shall encrypt account information and store account information in encrypted format using an industry approved encryption algorithm.;The system shall transmit account information data in encrypted format to and from the authorized user.;The system shall monitor the status and location of system components that may contain unencrypted account information data.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the account information before retrieve.;The system shall protect against loss of information during retrieve.;The system shall have provision to report errors in account information during retrieve.;The system shall have provision to report errors in account information after retrieve.;The system shall have provision to correct errors in account information if errors are detected.;The system shall ensure synchronization of account information if multiple users can perform retrieve on account information simultaneously.",
+                "ia:2": "The system shall maintain a list of accounts for each user.;The system shall authenticate users based upon PIN before allowing retrieval of account information.",
+                "ay:1": "The system shall log every time user performs the sends on account information.;At a minimum, the system shall capture the following information for the log entry: user identification, timestamp, sends, account information, and identification of the owner of account information.;The system shall prevent all users from modifying the log entry.;The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC2-Mobile",
+            "sentence_id": "5",
+            "sentence_type": "main",
+            "sentence_text": "The mobile phone operator delivers the message to the Cyclos SMS controler (the message might go via a SMS gateway provider but this is transparent).",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable mobile phone operator to deliver message.; The system shall encrypt message and store message in encrypted format using an industry approved encryption algorithm.; The system shall transmit message data in encrypted format to and from the authorized mobile phone operator.; The system shall monitor the status and location of system components that may contain unencrypted message data.",
+                "i:1": "The system shall ensure consistent understanding of message by the mobile phone operator during delivers.;The system shall have provision to report errors in message during delivers.",
+                "ay:3": "The system shall log every time message delivery happens.;At a minimum, the system shall capture the following information for the log entry: timestamp, message delivery;The system shall prevent all users from modifying the log entry.;The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC2-Mobile",
+            "sentence_id": "6",
+            "sentence_type": "main",
+            "sentence_text": "The controller connects to Cyclos and passes the parameters.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable controller to pass parameters.; The system shall encrypt parameters and store parameters in encrypted format using an industry approved encryption algorithm.; The system shall transmit parameters data in encrypted format to and from the authorized controller.; The system shall monitor the status and location of system components that may contain unencrypted parameters data.",
+                "i:1": "The system shall ensure consistent understanding of parameters by the controller during connect and pass.;The system shall have provision to report errors in parameters during connect and pass.",
+                "ay:3": "The system shall log every time connects happens.; At a minimum, the system shall capture the following information for the log entry: timestamp, connects; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC2-Mobile",
+            "sentence_id": "7",
+            "sentence_type": "main",
+            "sentence_text": "Cyclos passes the return message to the controller, who will deliver it to the operator.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable controller to deliver return message.;The system shall encrypt return message and store return message in encrypted format using an industry approved encryption algorithm.;The system shall transmit return message data in encrypted format to and from the authorized controller.;The system shall monitor the status and location of system components that may contain unencrypted return message data.",
+                "i:1": "The system shall ensure consistent understanding of return message by the controller during deliver.;The system shall have provision to report errors in return message during deliver.",
+                "ay:3": "The system shall log every time deliver happens.;At a minimum, the system shall capture the following information for the log entry: timestamp, deliver;The system shall prevent all users from modifying the log entry.;The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC2-Mobile",
+            "sentence_id": "8",
+            "sentence_type": "main",
+            "sentence_text": "Moreover, a user can activate automatic notifications on events such as balance change, reminders of outstanding loan repayments and newly granted credit, etc.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable user to activate automatic notifications.; The system shall encrypt automatic notifications and store automatic notifications in encrypted format using an industry approved encryption algorithm.; The system shall transmit automatic notifications data in encrypted format to and from the authorized user.; The system shall monitor the status and location of system components that may contain unencrypted automatic notifications data.",
+                "ia:2": "The system shall maintain a list of accounts for each user.;The system shall authenticate users based upon PIN before allowing retrieval of account information.",
+                "ay:1": "The system shall log every time user performs the activate on automatic notifications.;At a minimum, the system shall capture the following information for the log entry: user identification, timestamp, activate, automatic notifications, and identification of the owner of automatic notifications.;The system shall prevent all users from modifying the log entry.;The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC2-Mobile",
+            "sentence_id": "9",
+            "sentence_type": "main",
+            "sentence_text": "Depending on the client configuration the alerts and notifications will be sent as internal Cyclos message, e-mail, SMS, or a combination of them.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable system to send alerts and notifications.; The system shall encrypt alerts and notifications and store alerts and notifications in encrypted format using an industry approved encryption algorithm.; The system shall transmit alerts and notifications data in encrypted format to and from the authorized system.; The system shall monitor the status and location of system components that may contain unencrypted alerts and notifications data.",
+                "ia:2": "The system shall maintain a list of accounts for each user.;The system shall authenticate users based upon PIN before allowing retrieval of account information.",
+                "ay:1": "The system shall log every time system performs the send on alerts and notifications.;At a minimum, the system shall capture the following information for the log entry: system identification, timestamp, send, alerts and notifications, and identification of the owner of alerts and notifications.;The system shall prevent all users from modifying the log entry.;The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC2-Mobile",
+            "sentence_id": "10",
+            "sentence_type": "main",
+            "sentence_text": "An administrator or broker, or the user himself can change these settings at a later stage via the web interface.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable administrator or broker or user to change settings.; The system shall encrypt settings and store settings in encrypted format using an industry approved encryption algorithm.; The system shall transmit settings data in encrypted format to and from the authorized administrator or broker or user.; The system shall monitor the status and location of system components that may contain unencrypted settings data.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the settings before change.;The system shall protect against loss of information during change.;The system shall have provision to report errors in settings during change.;The system shall have provision to report errors in settings after change.;The system shall have provision to correct errors in settings if errors are detected.;The system shall ensure synchronization of settings if multiple administrator or broker or users can perform change on settings simultaneously.",
+                "ia:2": "The system shall maintain a list of accounts for each user.;The system shall authenticate users based upon PIN before allowing retrieval of account information.",
+                "ay:1": "The system shall log every time administrator or broker or user performs the change on settings.;At a minimum, the system shall capture the following information for the log entry: administrator or broker or user identification, timestamp, change, settings, and identification of the owner of settings.;The system shall prevent all users from modifying the log entry.;The system shall allow only authorized auditors to view the log entry."
+            }
+        }
+    ]
+}

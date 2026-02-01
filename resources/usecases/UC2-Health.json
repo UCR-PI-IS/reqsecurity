@@ -1,0 +1,101 @@
+{
+    "context": "Virtual Lifetime Electronic Record (VLER) is a business and technology initiative that allows secure and standardized electronic exchange of health and benefits information for Veterans and Service members.",
+    "use_case": "UC2-Health",
+    "domain": "Healthcare",
+    "functional_requirements":
+    [
+        {
+            "use_case_id": "UC2-Health",
+            "sentence_id": "1",
+            "sentence_type": "pre",
+            "sentence_text": "Consuming applications can query VLER Data Access Services (DAS) for exam results stored with a given Patient ID.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable consuming applications to query exam results.; The system shall encrypt exam results and store exam results in encrypted format using an industry approved encryption algorithm.; The system shall transmit exam results data in encrypted format to and from the authorized consuming applications.; The system shall monitor the status and location of system components that may contain unencrypted exam results data.",
+                "pr:1": "The system shall allow the owner of exam results to be notified of potential authorized uses of exam results.; The system shall allow the owner of exam results to be notified when the exam results is query by consuming applications.; The system shall have the ability to get consent from the owner of exam results before accessing exam results for authorized use.; The system shall allow access to exam results for authorized use without prior consent only under exceptional circumstances as defined by applicable privacy policy."
+            }
+        },
+        {
+            "use_case_id": "UC2-Health",
+            "sentence_id": "2",
+            "sentence_type": "main",
+            "sentence_text": "VLER DAS receives a request from a consuming application for a list of exam results filtered by Patient ID.",
+            "security_objectives": {
+                "ay:1": "The system shall log every time consuming application performs the receive on exam results.; At a minimum, the system shall capture the following information for the log entry: consuming application identification, timestamp, receive, exam results, and identification of the owner of exam results.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC2-Health",
+            "sentence_id": "3",
+            "sentence_type": "main",
+            "sentence_text": "VLER DAS sends a list of available exam results filtered by Patient ID.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable VLER DAS to send list of available exam results.; The system shall encrypt list of available exam results and store list of available exam results in encrypted format using an industry approved encryption algorithm.; The system shall transmit list of available exam results data in encrypted format to and from the authorized VLER DAS.; The system shall monitor the status and location of system components that may contain unencrypted list of available exam results data.",
+                "ay:1": "The system shall log every time VLER DAS performs the send on list of available exam results.; At a minimum, the system shall capture the following information for the log entry: VLER DAS identification, timestamp, send, list of available exam results, and identification of the owner of list of available exam results.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry.",
+                "pr:1": "The system shall allow the owner of list of available exam results to be notified of potential authorized uses of list of available exam results.; The system shall allow the owner of list of available exam results to be notified when the list of available exam results is send by VLER DAS.; The system shall have the ability to get consent from the owner of list of available exam results before accessing list of available exam results for authorized use.; The system shall allow access to list of available exam results for authorized use without prior consent only under exceptional circumstances as defined by applicable privacy policy."
+            }
+        },
+        {
+            "use_case_id": "UC2-Health",
+            "sentence_id": "4",
+            "sentence_type": "main",
+            "sentence_text": "For the list of available exam results, VLER DAS sends the following common data elements for each available exam result to the consuming application:",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable VLER DAS to send common data elements for each available exam result.; The system shall encrypt common data elements for each available exam result and store common data elements for each available exam result in encrypted format using an industry approved encryption algorithm.; The system shall transmit common data elements for each available exam result data in encrypted format to and from the authorized VLER DAS.; The system shall monitor the status and location of system components that may contain unencrypted common data elements for each available exam result data.",
+                "ay:1": "The system shall log every time VLER DAS performs the send on common data elements for each available exam result.; At a minimum, the system shall capture the following information for the log entry: VLER DAS identification, timestamp, send, common data elements for each available exam result, and identification of the owner of common data elements for each available exam result.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry.",
+                "pr:1": "The system shall allow the owner of common data elements for each available exam result to be notified of potential authorized uses of common data elements for each available exam result.; The system shall allow the owner of common data elements for each available exam result to be notified when the common data elements for each available exam result is send by VLER DAS.; The system shall have the ability to get consent from the owner of common data elements for each available exam result before accessing common data elements for each available exam result for authorized use.; The system shall allow access to common data elements for each available exam result for authorized use without prior consent only under exceptional circumstances as defined by applicable privacy policy."
+            }
+        },
+        {
+            "use_case_id": "UC2-Health",
+            "sentence_id": "5",
+            "sentence_type": "main",
+            "sentence_text": "a. Patient Information (First Name, Middle Name, Last Name, Date of Birth, ID,Assigning Authority, and Assigning Facility.);b. Document ID;c. Creation Date (Date, Time, and Time Zone);d. Date Status Modified (Date, Time, and Time Zone);e. Physician Information (First Name, Middle Name, Last Name, ID, Assigning Facility or Assigning Authority);f. Status of Exam Result;g. Uniform Resource Locator (URL) for the exam result",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable authorized users to store Patient Information.; The system shall encrypt Patient Information and store Patient Information in encrypted format using an industry approved encryption algorithm.; The system shall transmit Patient Information data in encrypted format to and from the authorized users.; The system shall monitor the status and location of system components that may contain unencrypted Patient Information data.",
+                "ay:1": "The system shall log every time system performs the storing on Patient Information.; At a minimum, the system shall capture the following information for the log entry: user identification, timestamp, storing, Patient Information, and identification of the owner of Patient Information.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry.",
+                "pr:1": "The system shall allow the owner of Patient Information to be notified of potential authorized uses of Patient Information.; The system shall allow the owner of Patient Information to be notified when the Patient Information is stored by system.; The system shall have the ability to get consent from the owner of Patient Information before accessing Patient Information for authorized use.; The system shall allow access to Patient Information for authorized use without prior consent only under exceptional circumstances as defined by applicable privacy policy."
+            }
+        },
+        {
+            "use_case_id": "UC2-Health",
+            "sentence_id": "6",
+            "sentence_type": "main",
+            "sentence_text": "The consuming application sends the URL for a specific exam result from the list of available exam results to VLER DAS.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable consuming application to send URL for a specific exam result.; The system shall encrypt URL for a specific exam result and store URL for a specific exam result in encrypted format using an industry approved encryption algorithm.; The system shall transmit URL for a specific exam result data in encrypted format to and from the authorized consuming application.; The system shall monitor the status and location of system components that may contain unencrypted URL for a specific exam result data.",
+                "ay:1": "The system shall log every time consuming application performs the sending on URL for a specific exam result.; At a minimum, the system shall capture the following information for the log entry: consuming application identification, timestamp, sending, URL for a specific exam result, and identification of the owner of URL for a specific exam result.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC2-Health",
+            "sentence_id": "7",
+            "sentence_type": "main",
+            "sentence_text": "VLER DAS processes the request for a specific exam result.",
+            "security_objectives": {}
+        },
+        {
+            "use_case_id": "UC2-Health",
+            "sentence_id": "8",
+            "sentence_type": "main",
+            "sentence_text": "VLER DAS sends the specific exam result to the consuming application.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable VLER DAS to send exam result.; The system shall encrypt exam result and store exam result in encrypted format using an industry approved encryption algorithm.; The system shall transmit exam result data in encrypted format to and from the authorized consuming application.; The system shall monitor the status and location of system components that may contain unencrypted exam result data.",
+                "ay:1": "The system shall log every time VLER DAS performs the send on exam result.; At a minimum, the system shall capture the following information for the log entry: VLER DAS identification, timestamp, send, exam result, and identification of the owner of exam result.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry.",
+                "pr:1": "The system shall allow the owner of exam result to be notified of potential authorized uses of exam result.; The system shall allow the owner of exam result to be notified when the exam result is send by VLER DAS.; The system shall have the ability to get consent from the owner of exam result before accessing exam result for authorized use.; The system shall allow access to exam result for authorized use without prior consent only under exceptional circumstances as defined by applicable privacy policy."
+            }
+        },
+        {
+            "use_case_id": "UC2-Health",
+            "sentence_id": "9",
+            "sentence_type": "main",
+            "sentence_text": "VLER DAS sends the specific exam result to the consuming application each time the user selects an item from the list of available exam results.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable user to select exam result.; The system shall encrypt exam result and store exam result in encrypted format using an industry approved encryption algorithm.; The system shall transmit exam result data in encrypted format to and from the authorized user.; The system shall monitor the status and location of system components that may contain unencrypted exam result data.",
+                "a:1": "The system shall store and make available exam result for a period of at least the retention period.; The system shall provide the capability for an administrator to purge data that is at least the retention period old and in accordance with organizational retention policy.",
+                "a:2": "The system shall respond to user select within the defined response time.; The system shall provide monitoring capabilities to ensure that response time falls within the defined response time.",
+                "ay:1": "The system shall log every time user performs the select on exam result.; At a minimum, the system shall capture the following information for the log entry: user identification, timestamp, select, exam result, and identification of the owner of exam result.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry.",
+                "pr:1": "The system shall allow the owner of exam result to be notified of potential authorized uses of exam result.; The system shall allow the owner of exam result to be notified when the exam result is select by user.; The system shall have the ability to get consent from the owner of exam result before accessing exam result for authorized use.; The system shall allow access to exam result for authorized use without prior consent only under exceptional circumstances as defined by applicable privacy policy."
+            }
+        }
+    ]
+}

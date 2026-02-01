@@ -1,0 +1,192 @@
+{
+    "context": "NutriMetas is a nutrition management application that allows users to activate their accounts, access nutritional information, record data, and consult reports related to their healthy eating goals.",
+    "use_case": "UC3-Health",
+    "domain": "Healthcare",
+    "functional_requirements":
+    [
+        {
+            "use_case_id": "UC3-Health",
+            "sentence_id": "1",
+            "sentence_type": "main",
+            "sentence_text": "Users can activate their accounts using their ID and password. They obtain the data for the goals that were previously defined and recorded by their nutritionist. This activation is performed only once per device using the password provided by the nutritionist. Once activated, the system will recognize the user each time they log in and will take them directly to the goals section. The prototype application does not synchronize between different devices belonging to the same user.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable user to activate account.; The system shall encrypt account and store account in encrypted format using an industry approved encryption algorithm.; The system shall transmit account data in encrypted format to and from the authorized user.; The system shall monitor the status and location of system components that may contain unencrypted account data.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the account before activate.; The system shall protect against loss of information during activate.; The system shall have provision to report errors in account during activate.; The system shall have provision to report errors in account after activate.; The system shall have provision to correct errors in account if errors are detected.; The system shall ensure synchronization of account if multiple users can perform activate on account simultaneously.",
+                "ia:2": "The system shall maintain a list of accounts for each user.;The system shall authenticate users based upon password.",
+                "ay:2": "The system shall log every time user logs into and logs out of the system.; At a minimum, the system shall capture the following information for the log entry: user identification, timestamp, login/logout.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC3-Health",
+            "sentence_id": "2",
+            "sentence_type": "main",
+            "sentence_text": "When the user activates the application, the patient gains access to the information in their file previously defined by the nutritionist. This process loads the information onto the device.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable patient to access information in their file.; The system shall encrypt information in their file and store information in their file in encrypted format using an industry approved encryption algorithm.; The system shall transmit information in their file data in encrypted format to and from the authorized patient.; The system shall monitor the status and location of system components that may contain unencrypted information in their file data.",
+                "i:1": "The system shall ensure consistent understanding of information in their file by the patient during access.; The system shall have provision to report errors in information in their file during access.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the information in their file before access.; The system shall protect against loss of information during access.; The system shall have provision to report errors in information in their file during access.; The system shall have provision to report errors in information in their file after access.; The system shall have provision to correct errors in information in their file if errors are detected.; The system shall ensure synchronization of information in their file if multiple patients can perform access on information in their file simultaneously."
+            }
+        },
+        {
+            "use_case_id": "UC3-Health",
+            "sentence_id": "3",
+            "sentence_type": "main",
+            "sentence_text": "Upon activation, the patient gains access to the healthy eating goals previously defined by the nutritionist. This process loads the information onto the device.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable patient to access healthy eating goals.; The system shall encrypt healthy eating goals and store healthy eating goals in encrypted format using an industry approved encryption algorithm.; The system shall transmit healthy eating goals data in encrypted format to and from the authorized patient.; The system shall monitor the status and location of system components that may contain unencrypted healthy eating goals data.",
+                "i:1": "The system shall ensure consistent understanding of healthy eating goals by the patient during access.; The system shall have provision to report errors in healthy eating goals during access.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the information before loads.; The system shall protect against loss of information during loads.; The system shall have provision to report errors in information during loads.; The system shall have provision to report errors in information after loads.; The system shall have provision to correct errors in information if errors are detected.; The system shall ensure synchronization of information if multiple patients can perform loads on information simultaneously."
+            }
+        },
+        {
+            "use_case_id": "UC3-Health",
+            "sentence_id": "4",
+            "sentence_type": "main",
+            "sentence_text": "File consultation: consult all the information in your nutritional file.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable user to consult nutritional file information.; The system shall encrypt nutritional file information and store nutritional file information in encrypted format using an industry approved encryption algorithm.; The system shall transmit nutritional file information data in encrypted format to and from the authorized user.; The system shall monitor the status and location of system components that may contain unencrypted nutritional file information data.",
+                "i:1": "The system shall ensure consistent understanding of nutritional file information by the user during consult.; The system shall have provision to report errors in nutritional file information during consult.",
+                "a:2": "The system shall respond to user consult within a reasonable time period.; The system shall provide monitoring capabilities to ensure that response time falls within a reasonable time period.",
+                "a:3": "The system shall ensure system availability to user consult during operational hours.; The system shall provide monitoring capabilities to ensure that system is available to users / other system components during operational hours.",
+                "a:5": "The system shall limit the number of records presented to the user for nutritional file information when the request limit is reached.; The system shall notify the user that the maximum number of records was returned.",
+                "ay:1": "The system shall log every time user performs the consult on nutritional file information.; At a minimum, the system shall capture the following information for the log entry: user identification, timestamp, consult, nutritional file information, and identification of the owner of nutritional file information.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry.",
+                "pr:1": "The system shall allow the owner of nutritional file information to be notified of potential authorized uses of nutritional file information.; The system shall allow the owner of nutritional file information to be notified when the nutritional file information is consult by user.; The system shall have the ability to get consent from the owner of nutritional file information before accessing nutritional file information for authorized use.; The system shall allow access to nutritional file information for authorized use without prior consent only under exceptional circumstances as defined by applicable privacy policy."
+            }
+        },
+        {
+            "use_case_id": "UC3-Health",
+            "sentence_id": "5",
+            "sentence_type": "main",
+            "sentence_text": "The user can change their email, phone number, education, user type, and nutritionist information.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable user to change email.; The system shall encrypt email and store email in encrypted format using an industry approved encryption algorithm.; The system shall transmit email data in encrypted format to and from the authorized user.; The system shall monitor the status and location of system components that may contain unencrypted email data.",
+                "i:1": "The system shall ensure consistent understanding of email by the user during change.; The system shall have provision to report errors in email during change.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the email before change.; The system shall protect against loss of information during change.; The system shall have provision to report errors in email during change.; The system shall have provision to report errors in email after change.; The system shall have provision to correct errors in email if errors are detected.; The system shall ensure synchronization of email if multiple users can perform change on email simultaneously.",
+                "ay:1": "The system shall log every time user performs the change on email.; At a minimum, the system shall capture the following information for the log entry: user identification, timestamp, change, email, and identification of the owner of email.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC3-Health",
+            "sentence_id": "6",
+            "sentence_type": "main",
+            "sentence_text": "The user can record nutritional data such as their weight, height, body fat percentage, waist circumference, physical activity level, and biochemical test data together with their nutritionist. To perform this action, the nutritionist must provide an authorization key.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable nutritionist to record nutritional data.; The system shall encrypt nutritional data and store nutritional data in encrypted format using an industry approved encryption algorithm.; The system shall transmit nutritional data data in encrypted format to and from the authorized nutritionist.; The system shall monitor the status and location of system components that may contain unencrypted nutritional data data.",
+                "i:1": "The system shall ensure consistent understanding of nutritional data by the nutritionist during record.; The system shall have provision to report errors in nutritional data during record.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the nutritional data before record.; The system shall protect against loss of information during record.; The system shall have provision to report errors in nutritional data during record.; The system shall have provision to report errors in nutritional data after record.; The system shall have provision to correct errors in nutritional data if errors are detected.; The system shall ensure synchronization of nutritional data if multiple nutritionists can perform record on nutritional data simultaneously.",
+                "ay:1": "The system shall log every time nutritionist performs the record on nutritional data.; At a minimum, the system shall capture the following information for the log entry: nutritionist identification, timestamp, record, nutritional data, and identification of the owner of nutritional data.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry."
+            }
+        },
+        {
+            "use_case_id": "UC3-Health",
+            "sentence_id": "7",
+            "sentence_type": "main",
+            "sentence_text": "The user can consult the healthy eating goals that are part of their improvement plan defined in conjunction with the nutritionist.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable user to consult healthy eating goals.; The system shall encrypt healthy eating goals and store healthy eating goals in encrypted format using an industry approved encryption algorithm.; The system shall transmit healthy eating goals data in encrypted format to and from the authorized user.; The system shall monitor the status and location of system components that may contain unencrypted healthy eating goals data.",
+                "i:1": "The system shall ensure consistent understanding of healthy eating goals by the user during consult.; The system shall have provision to report errors in healthy eating goals during consult.",
+                "a:2": "The system shall respond to user consult within a reasonable time period.; The system shall provide monitoring capabilities to ensure that response time falls within a reasonable time period.",
+                "a:3": "The system shall ensure system availability to user consult during operational hours.; The system shall provide monitoring capabilities to ensure that system is available to users / other system components during operational hours.",
+                "a:5": "The system shall limit the number of records presented to the user for healthy eating goals when the request limit is reached.; The system shall notify the user that the maximum number of records was returned.",
+                "ay:1": "The system shall log every time user performs the consult on healthy eating goals.; At a minimum, the system shall capture the following information for the log entry: user identification, timestamp, consult, healthy eating goals, and identification of the owner of healthy eating goals.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry.",
+                "pr:1": "The system shall allow the owner of healthy eating goals to be notified of potential authorized uses of healthy eating goals.; The system shall allow the owner of healthy eating goals to be notified when the healthy eating goals is consult by user.; The system shall have the ability to get consent from the owner of healthy eating goals before accessing healthy eating goals for authorized use.; The system shall allow access to healthy eating goals for authorized use without prior consent only under exceptional circumstances as defined by applicable privacy policy."
+            }
+        },
+        {
+            "use_case_id": "UC3-Health",
+            "sentence_id": "8",
+            "sentence_type": "main",
+            "sentence_text": "The user can record their daily activity regarding the fulfillment of each of the healthy eating goals.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable user to record daily activity.; The system shall encrypt daily activity and store daily activity in encrypted format using an industry approved encryption algorithm.; The system shall transmit daily activity data in encrypted format to and from the authorized user.; The system shall monitor the status and location of system components that may contain unencrypted daily activity data.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the daily activity before record.; The system shall protect against loss of information during record.; The system shall have provision to report errors in daily activity during record.; The system shall have provision to report errors in daily activity after record.; The system shall have provision to correct errors in daily activity if errors are detected.; The system shall ensure synchronization of daily activity if multiple users can perform record on daily activity simultaneously.",
+                "a:3": "The system shall ensure system availability to user record during operational hours.; The system shall provide monitoring capabilities to ensure that system is available to users / other system components during operational hours."
+            }
+        },
+        {
+            "use_case_id": "UC3-Health",
+            "sentence_id": "9",
+            "sentence_type": "main",
+            "sentence_text": "The system sends reminders for the user to record daily data for each of the goals. This requirement is implemented through a process that runs as an automatic notification service.",
+            "security_objectives": {
+                "i:1": "The system shall ensure consistent understanding of reminders by the automatic notification service during send.; The system shall have provision to report errors in reminders during send.",
+                "a:3": "The system shall ensure automatic notification service to user send during operational hours.; The system shall provide monitoring capabilities to ensure that automatic notification service is available to users / other system components during operational hours."
+            }
+        },
+        {
+            "use_case_id": "UC3-Health",
+            "sentence_id": "10",
+            "sentence_type": "main",
+            "sentence_text": "The user can consult a report with data on goal achievement.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable user to consult report with data on goal achievement.; The system shall encrypt report with data on goal achievement and store report with data on goal achievement in encrypted format using an industry approved encryption algorithm.; The system shall transmit report with data on goal achievement data in encrypted format to and from the authorized user.; The system shall monitor the status and location of system components that may contain unencrypted report with data on goal achievement data.",
+                "i:1": "The system shall ensure consistent understanding of report with data on goal achievement by the user during consult.; The system shall have provision to report errors in report with data on goal achievement during consult.",
+                "a:2": "The system shall respond to user consult within a reasonable time.; The system shall provide monitoring capabilities to ensure that response time falls within reasonable time period.",
+                "a:3": "The system shall ensure system availability to user consult during business hours.; The system shall provide monitoring capabilities to ensure that system is available to users during business hours.",
+                "a:5": "The system shall limit the number of records presented to the user for report with data on goal achievement when the request limit is reached.; The system shall notify the user that the maximum number of records was returned.",
+                "ay:1": "The system shall log every time user performs the consult on report with data on goal achievement.; At a minimum, the system shall capture the following information for the log entry: user identification, timestamp, consult, report with data on goal achievement, and identification of the owner of report with data on goal achievement.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry.",
+                "pr:1": "The system shall allow the owner of report with data on goal achievement to be notified of potential authorized uses of report with data on goal achievement.; The system shall allow the owner of report with data on goal achievement to be notified when the report with data on goal achievement is consult by user.; The system shall have the ability to get consent from the owner of report with data on goal achievement before accessing report with data on goal achievement for authorized use.; The system shall allow access to report with data on goal achievement for authorized use without prior consent only under exceptional circumstances as defined by applicable privacy policy."
+            }
+        },
+        {
+            "use_case_id": "UC3-Health",
+            "sentence_id": "11",
+            "sentence_type": "main",
+            "sentence_text": "The user can consult a report of medals obtained for achieving goals.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable user to consult report of medals obtained.; The system shall encrypt report of medals obtained and store report of medals obtained in encrypted format using an industry approved encryption algorithm.; The system shall transmit report of medals obtained data in encrypted format to and from the authorized user.; The system shall monitor the status and location of system components that may contain unencrypted report of medals obtained data.",
+                "i:1": "The system shall ensure consistent understanding of report of medals obtained by the user during consult.; The system shall have provision to report errors in report of medals obtained during consult.",
+                "a:2": "The system shall respond to user consult within a reasonable time period.; The system shall provide monitoring capabilities to ensure that response time falls within a reasonable time period.",
+                "a:3": "The system shall ensure system availability to user consult during operational hours.; The system shall provide monitoring capabilities to ensure that system is available to users / other system components during operational hours.",
+                "a:5": "The system shall limit the number of records presented to the user for report of medals obtained when the request limit is reached.; The system shall notify the user that the maximum number of records was returned.",
+                "ay:1": "The system shall log every time user performs the consult on report of medals obtained.; At a minimum, the system shall capture the following information for the log entry: user identification, timestamp, consult, report of medals obtained, and identification of the owner of report of medals obtained.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry.",
+                "pr:1": "The system shall allow the owner of report of medals obtained to be notified of potential authorized uses of report of medals obtained.; The system shall allow the owner of report of medals obtained to be notified when the report of medals obtained is consult by user.; The system shall have the ability to get consent from the owner of report of medals obtained before accessing report of medals obtained for authorized use.; The system shall allow access to report of medals obtained for authorized use without prior consent only under exceptional circumstances as defined by applicable privacy policy."
+            }
+        },
+        {
+            "use_case_id": "UC3-Health",
+            "sentence_id": "12",
+            "sentence_type": "main",
+            "sentence_text": "The user can consult a report with their anthropometric data (weight, height, BMI, body fat percentage, waist circumference, and biochemical measurements).",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable user to consult anthropometric data.; The system shall encrypt anthropometric data and store anthropometric data in encrypted format using an industry approved encryption algorithm.; The system shall transmit anthropometric data in encrypted format to and from the authorized user.; The system shall monitor the status and location of system components that may contain unencrypted anthropometric data.",
+                "i:1": "The system shall ensure consistent understanding of anthropometric data by the user during consult.; The system shall have provision to report errors in anthropometric data during consult.",
+                "a:2": "The system shall respond to user consult within a reasonable time period.; The system shall provide monitoring capabilities to ensure that response time falls within a reasonable time period.",
+                "a:3": "The system shall ensure system availability to user consult during operational hours.; The system shall provide monitoring capabilities to ensure that system is available to users / other system components during operational hours.",
+                "a:5": "The system shall limit the number of records presented to the user for anthropometric data when the request limit is reached.; The system shall notify the user that the maximum number of records was returned.",
+                "ay:1": "The system shall log every time user performs the consult on anthropometric data.; At a minimum, the system shall capture the following information for the log entry: user identification, timestamp, consult, anthropometric data, and identification of the owner of anthropometric data.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry.",
+                "pr:1": "The system shall allow the owner of anthropometric data to be notified of potential authorized uses of anthropometric data.; The system shall allow the owner of anthropometric data to be notified when the anthropometric data is consult by user.; The system shall have the ability to get consent from the owner of anthropometric data before accessing anthropometric data for authorized use.; The system shall allow access to anthropometric data for authorized use without prior consent only under exceptional circumstances as defined by applicable privacy policy."
+            }
+        },
+        {
+            "use_case_id": "UC3-Health",
+            "sentence_id": "13",
+            "sentence_type": "main",
+            "sentence_text": "The user can consult a report with their biochemical data (total cholesterol, LDL, HDL, triglycerides, and blood sugar).",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable user to consult biochemical data.; The system shall encrypt biochemical data and store biochemical data in encrypted format using an industry approved encryption algorithm.; The system shall transmit biochemical data data in encrypted format to and from the authorized user.; The system shall monitor the status and location of system components that may contain unencrypted biochemical data data.",
+                "i:1": "The system shall ensure consistent understanding of biochemical data by the user during consult.; The system shall have provision to report errors in biochemical data during consult.",
+                "a:2": "The system shall respond to user consult within a reasonable time period.; The system shall provide monitoring capabilities to ensure that response time falls within a reasonable time period.",
+                "a:3": "The system shall ensure system availability to user consult during operational hours.; The system shall provide monitoring capabilities to ensure that system is available to users / other system components during operational hours.",
+                "a:5": "The system shall limit the number of records presented to the user for biochemical data when the request limit is reached.; The system shall notify the user that the maximum number of records was returned.",
+                "ay:1": "The system shall log every time user performs the consult on biochemical data.; At a minimum, the system shall capture the following information for the log entry: user identification, timestamp, consult, biochemical data, and identification of the owner of biochemical data.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry.",
+                "pr:1": "The system shall allow the owner of biochemical data to be notified of potential authorized uses of biochemical data.; The system shall allow the owner of biochemical data to be notified when the biochemical data is consult by user.; The system shall have the ability to get consent from the owner of biochemical data before accessing biochemical data for authorized use.; The system shall allow access to biochemical data for authorized use without prior consent only under exceptional circumstances as defined by applicable privacy policy."
+            }
+        },
+        {
+            "use_case_id": "UC3-Health",
+            "sentence_id": "14",
+            "sentence_type": "main",
+            "sentence_text": "Each week, the application generates a spreadsheet, stores the patient's recorded data (goal achievement record, application usage record, nutritional data, and biochemical data) in it, and sends the file to the nutritionist's email for review.",
+            "security_objectives": {
+                "c:1": "The system shall enforce access privileges that enable application to generate spreadsheet.; The system shall encrypt spreadsheet and store spreadsheet in encrypted format using an industry approved encryption algorithm.; The system shall transmit spreadsheet data in encrypted format to and from the authorized application.; The system shall monitor the status and location of system components that may contain unencrypted spreadsheet data.",
+                "i:1": "The system shall ensure consistent understanding of file by the application during sends.; The system shall have provision to report errors in file during sends.",
+                "i:2": "The system shall ensure that all mandatory information is provided for the spreadsheet before generates.; The system shall protect against loss of information during generates.; The system shall have provision to report errors in spreadsheet during generates.; The system shall have provision to report errors in spreadsheet after generates.; The system shall have provision to correct errors in spreadsheet if errors are detected.; The system shall ensure synchronization of spreadsheet if multiple applications can perform generates on spreadsheet simultaneously.",
+                "i:4": "The system shall not allow modification of spreadsheet by any user.",
+                "a:3": "The system shall ensure system availability to application generate, store, and send during operational hours.; The system shall provide monitoring capabilities to ensure that system is available to users / other system components during operational hours.",
+                "ay:1": "The system shall log every time application performs the sends on patient's recorded data.; At a minimum, the system shall capture the following information for the log entry: application identification, timestamp, sends, patient's recorded data, and identification of the owner of patient's recorded data.; The system shall prevent all users from modifying the log entry.; The system shall allow only authorized auditors to view the log entry.",
+                "pr:1": "The system shall allow the owner of patient's recorded data to be notified of potential authorized uses of patient's recorded data.; The system shall allow the owner of patient's recorded data to be notified when the patient's recorded data is sends by application.; The system shall have the ability to get consent from the owner of patient's recorded data before accessing patient's recorded data for authorized use.; The system shall allow access to patient's recorded data for authorized use without prior consent only under exceptional circumstances as defined by applicable privacy policy."
+            }
+        }
+    ]
+}
