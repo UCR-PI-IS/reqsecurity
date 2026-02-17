@@ -93,6 +93,7 @@ if __name__ == "__main__":
         )
         results['treatment'] = treatment
         results['control'] = control
+        results['run'] = i+1
         file_name = f'results/{id}/results_iteration_{i+1}.json'
         os.makedirs(os.path.dirname(file_name), exist_ok=True)
 

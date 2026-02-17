@@ -24,3 +24,4 @@ class GEval:
         score = int(match.group())
         self.logger.info(f"GEval score between reference '{reference}' and generated '{generated}': {score}")
         return score
+    
