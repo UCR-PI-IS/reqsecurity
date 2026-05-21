@@ -14,17 +14,6 @@ import pingouin as pg
 import os
 import json
 
-def calculate_score(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Compute Relevance and Coverage metrics.
-    Relevance = TP / (TP + FP)
-    Coverage  = TP / (TP + FN)
-    """
-    df["relevance"] = df["TP"] / (df["TP"] + df["FP"])
-    df["coverage"] = df["TP"] / (df["TP"] + df["FN"])
-    return df
-
-
 def _apply_ieee_style():
     """Apply IEEE-compliant matplotlib style."""
     plt.rcParams.update({
@@ -103,14 +92,23 @@ def confusion_matrix_chart_grouped(df: pd.DataFrame, group_by: str, dirname, fil
     _save_and_show(fig, dirname, filename)
 
 
-def violin_chart(df: pd.DataFrame, metric: str, group_col: str, dirname, filename):
+def violin_chart(df: pd.DataFrame, metric: str, group_col: str, dirname, filename, print_stats: bool = True):
     """
     Violin plot comparing distributions of a metric across groups.
     """
     _apply_ieee_style()
 
+    # Calcular y mostrar estadísticas descriptivas
+    if print_stats:
+        print(f"\n=== Estadísticas para {metric} por {group_col} ===")
+        stats_df = df.groupby(group_col)[metric].agg(['mean', 'std', 'count'])
+        stats_df.columns = ['Mean', 'Std Dev', 'N']
+        print(stats_df.to_string())
+        print()
+
     fig, ax = plt.subplots(figsize=(5, 4))
     sns.violinplot(data=df, x=group_col, y=metric, ax=ax, inner="box", cut=0)
+    ax.set_ylim(0, 1)
     ax.set_xlabel(group_col.capitalize())
     ax.set_ylabel(metric.capitalize())
     fig.tight_layout()
@@ -118,15 +116,24 @@ def violin_chart(df: pd.DataFrame, metric: str, group_col: str, dirname, filenam
     _save_and_show(fig, dirname, filename)
 
 
-def violin_chart_grouped(df: pd.DataFrame, metric: str, group_col: str, hue_col: str, dirname, filename):
+def violin_chart_grouped(df: pd.DataFrame, metric: str, group_col: str, hue_col: str, dirname, filename, print_stats: bool = True):
     """
     Violin plot comparing distributions of a metric across groups, split by hue.
     """
     _apply_ieee_style()
 
+    # Calcular y mostrar estadísticas descriptivas
+    if print_stats:
+        print(f"\n=== Estadísticas para {metric} por {group_col} y {hue_col} ===")
+        stats_df = df.groupby([group_col, hue_col])[metric].agg(['mean', 'std', 'count'])
+        stats_df.columns = ['Mean', 'Std Dev', 'N']
+        print(stats_df.to_string())
+        print()
+
     fig, ax = plt.subplots(figsize=(6, 4))
     sns.violinplot(data=df, x=group_col, y=metric, hue=hue_col, ax=ax,
                    inner="box", cut=0, split=False)
+    ax.set_ylim(0, 1)
     ax.set_xlabel(group_col.capitalize())
     ax.set_ylabel(metric.capitalize())
     ax.legend(title=hue_col.capitalize(), loc="best")
@@ -139,98 +146,112 @@ def violin_chart_grouped(df: pd.DataFrame, metric: str, group_col: str, hue_col:
 # 1. Load and preprocess data
 # ------------------------------
 
-metric_sheet = "Metrics by ID"
+metric_sheet = "Similarity Metric"
 df = pd.read_excel("metrics.xlsx", sheet_name=metric_sheet)
 experiments = open("resources/riaz_results.json", "r").read()
 experiments = json.loads(experiments)
 experiments_df = pd.DataFrame(experiments)
 
-# Aggregate results per id, run, and group
-df = (
-    df.groupby(["id", "use_case", "group"], as_index=False)
-      .aggregate({
-          "TP": "sum",
-          "FP": "sum",
-          "FN": "sum"
-      })
+df = df[df["exception"].isna()]
+df.rename(columns={
+    "use_case": "Use Case",
+    "sentence": "Sentence",
+    "group": "Experimental Group", 
+    "id": "Temperature",
+    "objective": "Objective",
+    "pattern": "Pattern",
+    "cosine_similarity": "SBERT"}, 
+    inplace=True)
+
+violin_chart(
+    df, 
+    "SBERT", 
+    "Experimental Group", 
+    "imgs", 
+    "violin_chart_accuracy_by_experimental_group.png")
+
+violin_chart(
+    df, 
+    "SBERT", 
+    "Temperature", 
+    "imgs", 
+    "violin_chart_accuracy_by_temperature.png"
 )
 
-# # General confusion matrix (all data summed)
-# confusion_matrix_chart(
-#     df,
-#     "imgs",
-#     "confusion_matrix_general"
-# )
+violin_chart_grouped(
+    df, 
+    "SBERT", 
+    "Experimental Group", 
+    "Temperature", 
+    "imgs", 
+    "violin_chart_accuracy_by_experimental_group_and_temperature.png"
+)
 
-# # Grouped confusion matrix by "group"
-# confusion_matrix_chart_grouped(
-#     df,
-#     group_by="group",
-#     dirname="imgs",
-#     filename="confusion_matrix_by_group"
-# )
+aggregated_df = df.groupby(
+    [
+        "Temperature",
+        "Experimental Group",
+        "Use Case",
+        "Sentence",
+        "Objective",
+        "Pattern",
+    ],
+    as_index=False
+).agg(
+    Accuracy=("SBERT", "mean"),
+    Min=("SBERT", "min"),
+    Max=("SBERT", "max"),
+    Precision=("SBERT", "std"),
+    Count=("SBERT", "count"),
+)
 
-# # Grouped confusion matrix by "id"
-# confusion_matrix_chart_grouped(
-#     df,
-#     group_by="id",
-#     dirname="imgs",
-#     filename="confusion_matrix_by_id"
-# )
+aggregated_df["Precision"] = abs(1 - aggregated_df["Precision"])
 
-df = calculate_score(df)
-df['n'] = 15
+aggregated_df.to_csv("aggregated_metrics.csv", index=False)
+violin_chart(
+    aggregated_df, 
+    "Accuracy", 
+    "Experimental Group", 
+    "imgs", 
+    "aggregated_violin_chart_accuracy_by_experimental_group.png")
 
-df = pd.concat([df, experiments_df], ignore_index=True)
+violin_chart(
+    aggregated_df, 
+    "Accuracy", 
+    "Temperature", 
+    "imgs", 
+    "aggregated_violin_chart_accuracy_by_temperature.png"
+)
 
-df.drop(columns=["TP", "FP", "FN", "efficiency", "quality"], inplace=True)
-df["domain"] = df["use_case"].apply(lambda x: "Healthcare" if "health" in x.lower() else "Mobile" if "mobile" in x.lower() else "Other")
+violin_chart_grouped(
+    aggregated_df, 
+    "Accuracy", 
+    "Experimental Group", 
+    "Temperature", 
+    "imgs", 
+    "aggregated_violin_chart_accuracy_by_experimental_group_and_temperature.png"
+)
 
-table_by_group = df.groupby(["id", "group"], as_index=False).agg({
-    "relevance": "mean",
-    "coverage": "mean"
-})
-table_by_use_case = df.groupby(["id", "domain"], as_index=False).agg({
-    "relevance": "mean",
-    "coverage": "mean"
-})
-overall_table = df.groupby(["id"], as_index=False).agg({
-    "relevance": "mean",
-    "coverage": "mean"
-})
+violin_chart(
+    aggregated_df, 
+    "Precision", 
+    "Experimental Group", 
+    "imgs", 
+    "aggregated_violin_chart_precision_by_experimental_group.png")
 
-# Convert DataFrames to LaTeX tables
-print("\n=== TABLE BY GROUP ===")
-print(table_by_group.to_latex(index=False, float_format="%.3f"))
+violin_chart(
+    aggregated_df, 
+    "Precision", 
+    "Temperature", 
+    "imgs", 
+    "aggregated_violin_chart_precision_by_temperature.png"
+)
 
-print("\n=== TABLE BY USE CASE ===")
-print(table_by_use_case.to_latex(index=False, float_format="%.3f"))
-
-print("\n=== OVERALL TABLE ===")
-print(overall_table.to_latex(index=False, float_format="%.3f"))
-
-# Optionally, save to files
-os.makedirs("tables", exist_ok=True)
-with open("tables/table_by_group.tex", "w") as f:
-    f.write(table_by_group.to_latex(index=False, float_format="%.3f"))
-with open("tables/table_by_use_case.tex", "w") as f:
-    f.write(table_by_use_case.to_latex(index=False, float_format="%.3f"))
-with open("tables/overall_table.tex", "w") as f:
-    f.write(overall_table.to_latex(index=False, float_format="%.3f"))
-
-# # How do the distributions of coverage metrics of security requirements generated by
-# # large language models compare to those elicited by human participants?
-# df["source"] = df["id"].apply(lambda x: "LLM" if x in ["UCR26a", "UCR26b", "UCR26c", "UCR26d"] else "Human")
-
-# violin_chart(df, "coverage", "source", "imgs", "violin_coverage")
-
-# # How do the distributions of relevance scores of security requirements generated by
-# # large language models compare to those elicited by human participants?
-# violin_chart(df, "relevance", "source", "imgs", "violin_relevance")
-
-# # Coverage: control vs treatment, split by source (Human / LLM)
-# violin_chart_grouped(df, "coverage", "group", "source", "imgs", "violin_coverage_by_group")
-
-# # Relevance: control vs treatment, split by source (Human / LLM)
-# violin_chart_grouped(df, "relevance", "group", "source", "imgs", "violin_relevance_by_group")
-
+violin_chart_grouped(
+    aggregated_df, 
+    "Precision", 
+    "Experimental Group", 
+    "Temperature", 
+    "imgs", 
+    "aggregated_violin_chart_precision_by_experimental_group_and_temperature.png"
+)

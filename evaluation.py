@@ -197,6 +197,8 @@ def compute_metrics_by_similitude(groups, oracle):
                         "use_case": result["use_case_id"],
                         "sentence": result["sentence_id"],
                         "group": "treatment",
+                        "objective": requirement["objective_id"],
+                        "pattern": requirement["pattern_id"],
                         "requirement": requirement["requirement"],
                     })
                 ids = [ r["objective_id"] + ":" + r["pattern_id"] for r in result["parsed_response"] ]
@@ -275,15 +277,17 @@ def compute_metrics_by_similitude(groups, oracle):
             metrics.extend([metric.copy() for _ in range(len(generated_requirements))])
             continue
         oracle_requirement = oracle[row['use_case']][row['sentence']][id]
-        cosine_scores = cosine_similarity.compute_many(generated_requirements, oracle_requirement)
-        bertscores = bert_score.compute_many(generated_requirements, oracle_requirement)
+        # cosine_scores = cosine_similarity.compute_many(generated_requirements, oracle_requirement)
+        # bertscores = bert_score.compute_many(generated_requirements, oracle_requirement)
         g_eval_scores = [g_eval.evaluate(oracle_requirement, req) for req in row['requirement']]
         
-        for cosine, bert, geval in zip(cosine_scores, bertscores, g_eval_scores):
-            metric["cosine_similarity"] = cosine
-            metric["bertscore_precision"] = bert["precision"]
-            metric["bertscore_recall"] = bert["recall"]
-            metric["bertscore_f1"] = bert["f1"]
+        # for cosine, bert, geval in zip(cosine_scores, bertscores, g_eval_scores):
+        for geval in g_eval_scores:
+        # for cosine, bert in zip(cosine_scores, bertscores):
+            # metric["cosine_similarity"] = cosine
+            # metric["bertscore_precision"] = bert["precision"]
+            # metric["bertscore_recall"] = bert["recall"]
+            # metric["bertscore_f1"] = bert["f1"]
             metric["g_eval"] = geval
             metrics.append(metric.copy())
     return pd.DataFrame(metrics)
