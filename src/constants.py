@@ -1,5 +1,6 @@
-import json
 import logging
+import json
+import os
 
 logger = logging.getLogger()
 
@@ -32,4 +33,4 @@ FUNCTIONAL_REQUIREMENTS = [req for use_case in USE_CASES for req in use_case["fu
 logger.info(f"FUNCTIONAL REQUIREMENTS: \n{json.dumps(FUNCTIONAL_REQUIREMENTS, indent=2)}")
 
 
-API_KEY = ""
+API_KEY = os.getenv("API_KEY", "")
